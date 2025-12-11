@@ -1,12 +1,17 @@
 {
 	"name": "project-mac",
-	"private": true,
-	"version": "0.0.0",
 	"type": "module",
+	"version": "0.0.0",
+	"private": true,
+	"author": "citizin@outlook.com",
 	"scripts": {
 		"dev": "vite",
 		"build": "vue-tsc -b && vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"prepare": "husky",
+		"typecheck": "nuxi typecheck"
 	},
 	"dependencies": {
 		"dayjs": "^1.11.19",
@@ -18,9 +23,16 @@
 		"@types/node": "^24.10.1",
 		"@vitejs/plugin-vue": "^6.0.1",
 		"@vue/tsconfig": "^0.8.1",
+		"eslint": "^9.39.1",
+		"eslint-plugin-format": "^1.0.2",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7",
 		"tailwindcss": "^4.1.17",
 		"typescript": "~5.9.3",
 		"vite": "^7.2.4",
 		"vue-tsc": "^3.1.4"
+	},
+	"lint-staged": {
+		"*": "pnpm lint"
 	}
 }

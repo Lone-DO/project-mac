@@ -1,22 +1,24 @@
 <script setup lang="ts">
-import {controlLinks, navLinks} from '@/constants'
 import dayjs from 'dayjs';
+
+import {controlLinks, navLinks} from '@/constants';
 </script>
+
 <template>
-  <header id='app-header'>
-    <img src='@/assets/images/app-icons/logo.svg' alt='logo'>
+  <header id="app-header">
+    <img src="@/assets/images/app-icons/logo.svg" alt="logo">
     <p>Losovoj's Portfolio</p>
-    <nav id='app-header_navigation'>
+    <nav id="app-header_navigation">
       <ul>
-        <li v-for='(opt) in navLinks' :key='opt.label'>
+        <li v-for="(opt) in navLinks" :key="opt.label">
           <span>{{ opt.label }}</span>
         </li>
       </ul>
     </nav>
-    <div id='app-header_control-panel'>
+    <div id="app-header_control-panel">
       <ul>
-        <li v-for='(opt) in controlLinks' :key='opt.label'>
-          <img :src='opt.img' :alt='opt.label'>
+        <li v-for="(opt) in controlLinks" :key="opt.label">
+          <img :src="opt.img" :alt="opt.label">
         </li>
       </ul>
       <time>{{ dayjs().format('ddd MMM D h:mm A') }}</time>
@@ -31,7 +33,7 @@ header {
   @apply w-full flex justify-start items-center gap-4 bg-white/50 backdrop-blur-3xl p-2 px-5 select-none flex-wrap;
 
   p {
-    @apply font-bold shrink-0
+    @apply font-bold shrink-0;
   }
 
   time {
@@ -47,7 +49,8 @@ header {
   }
 }
 
-#app-header_navigation, #app-header_control-panel {
+#app-header_navigation,
+#app-header_control-panel {
   @apply flex items-center max-sm:justify-center gap-5;
 }
 

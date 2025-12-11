@@ -6,8 +6,9 @@ export default antfu({
 	typescript: true,
 	formatters: true,
 	stylistic: {
-		indent: 2,
+		indent: 'tab',
 		semi: true,
+		tabWidth: 1,
 		quotes: 'single',
 	},
 	ignores: ['.pnpm-store/**', '**/migrations/*', '.github/workflows/**'],

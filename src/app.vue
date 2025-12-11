@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AppHeader from '@/components/app/header.vue'
+import AppHeader from '@/components/app/header.vue';
 </script>
 
 <template>
@@ -9,7 +9,6 @@ import AppHeader from '@/components/app/header.vue'
 </template>
 
 <style>
-
 body {
   background-image: url('./assets/images/wallpaper/default.webp');
   background-size: cover;
