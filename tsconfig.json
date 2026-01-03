@@ -1,11 +1,6 @@
 {
 	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@/*": [
-				"./src/*"
-			]
-		},
+		"target": "es2024",
 		"allowSyntheticDefaultImports": true
 	},
 	"references": [
@@ -16,8 +11,5 @@
 			"path": "./tsconfig.node.json"
 		}
 	],
-	"files": [],
-	"include": [
-		"./src"
-	]
+	"files": []
 }
