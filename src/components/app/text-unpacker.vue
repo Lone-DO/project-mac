@@ -15,7 +15,7 @@ withDefaults(defineProps<{
 		v-for="(char, index) in text"
 		:key="index"
 		:class="className"
-		:style="{ 'font-variation-settings': `whgt ${baseWeight}` }"
+		:style="{ fontWeight: baseWeight }"
 	>
 		{{ char === ' ' ? '\u00A0' : char }}
 	</span>
