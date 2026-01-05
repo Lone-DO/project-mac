@@ -27,7 +27,7 @@ function setupTextHover(container: HTMLElement | null, type: 'title' | 'subtitle
 			letters.forEach((letter) => {
 				const { left: l, width: w } = letter.getBoundingClientRect();
 				const distance = Math.abs(mouseX - (l - left + w / 2));
-				const intensity = Math.exp(-(distance ** 2) / 10000);
+				const intensity = Math.exp(-(distance ** 2) / 20000);
 				animateLetter(letter, min + (max - min) * intensity);
 			});
 		};
@@ -57,17 +57,10 @@ onMounted(() => {
 <template>
 	<section id="welcome" class="w-full">
 		<p ref="subtitle">
-			<TextUnpacker
-				:base-weight="100"
-				text="Hey, I'm Leon! Welcome to my"
-				class-name="text-3xl font-georama"
-			/>
+			<TextUnpacker :base-weight="100" text="Hey, I'm Leon! Welcome to my" />
 		</p>
-		<h1 ref="title" class="m-7">
-			<TextUnpacker
-				text="portfolio"
-				class-name="text-9xl italic font-georama"
-			/>
+		<h1 ref="title" class="text-6xl">
+			<TextUnpacker text="portfolio" class-name="italic" />
 		</h1>
 		<p class="small-screen">
 			This Portfolio is designed for desktop/tablet screens only.

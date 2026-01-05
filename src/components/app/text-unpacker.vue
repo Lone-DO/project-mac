@@ -14,7 +14,7 @@ withDefaults(defineProps<{
 	<span
 		v-for="(char, index) in text"
 		:key="index"
-		:class="className"
+		:class="`${className} font-georama`"
 		:style="{ fontWeight: baseWeight }"
 	>
 		{{ char === ' ' ? '\u00A0' : char }}
