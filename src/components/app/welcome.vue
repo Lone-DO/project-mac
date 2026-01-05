@@ -67,3 +67,17 @@ onMounted(() => {
 		</p>
 	</section>
 </template>
+
+<style>
+#welcome {
+	@apply text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-full max-sm:w-full max-sm:px-10;
+
+	.small-screen {
+		@apply sm:hidden m-7 bg-red-300/20 backdrop-blur-lg p-3 rounded-md absolute top-10 font-roboto gap-4;
+	}
+
+	p:not(.small-screen) {
+		@apply text-[16px] text-center  text-gray-400;
+	}
+}
+</style>
