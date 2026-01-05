@@ -6,7 +6,7 @@ import { controlLinks, navLinks } from '@/constants';
 
 <template>
 	<header id="app-header">
-		<img src="@/assets/images/app-icons/logo.svg" alt="logo">
+		<img src="/images/app-icons/logo.svg" alt="logo">
 		<p>Losovoj's Portfolio</p>
 		<nav id="app-header_navigation">
 			<ul>
@@ -18,7 +18,7 @@ import { controlLinks, navLinks } from '@/constants';
 		<div id="app-header_control-panel">
 			<ul>
 				<li v-for="(opt) in controlLinks" :key="opt.label">
-					<img :src="opt.img" :alt="opt.label">
+					<img :src="`/images/${opt.img}`" :alt="opt.label">
 				</li>
 			</ul>
 			<time>{{ dayjs().format('ddd MMM D h:mm A') }}</time>

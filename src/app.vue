@@ -13,7 +13,7 @@ import { AppHeader, AppWelcome } from '@/components';
 
 <style>
 body {
-	background-image: url('./assets/images/wallpaper/default.webp');
+	background-image: url('/images/wallpaper/default.webp');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
