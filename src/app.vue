@@ -3,9 +3,9 @@ import { AppHeader, AppWelcome } from '@/components';
 </script>
 
 <template>
-	<section>
+	<section class="flex flex-col h-screen">
 		<AppHeader />
-		<main>
+		<main class="flex-1 relative">
 			<AppWelcome />
 		</main>
 	</section>
