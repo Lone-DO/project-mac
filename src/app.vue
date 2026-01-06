@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { AppHeader, AppWelcome } from '@/components';
+import { useTemplateRef } from 'vue';
+
+import { AppHeader, AppTooltip, AppWelcome } from '@/components';
+
+const target = useTemplateRef('target');
 </script>
 
 <template>
@@ -7,6 +11,10 @@ import { AppHeader, AppWelcome } from '@/components';
 		<AppHeader />
 		<main class="flex-1 relative">
 			<AppWelcome />
+			<button ref="target">
+				target
+			</button>
+			<AppTooltip text="Hello World" :target />
 		</main>
 	</section>
 </template>

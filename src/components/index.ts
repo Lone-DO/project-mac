@@ -1,4 +1,5 @@
 import AppHeader from './app/header.vue';
+import AppTooltip from './app/tooltip.vue';
 import AppWelcome from './app/welcome.vue';
 
-export { AppHeader, AppWelcome };
+export { AppHeader, AppTooltip, AppWelcome };
