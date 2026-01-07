@@ -1,20 +1,27 @@
 <script setup lang="ts">
-import { useTemplateRef } from 'vue';
+import { inject } from 'vue';
 
-import { AppHeader, AppTooltip, AppWelcome } from '@/components';
+import type { TooltipRegistry } from '@/lib/types';
 
-const target = useTemplateRef('target');
+import { AppHeader, AppRootTooltip, AppWelcome } from '@/components';
+import { $tooltipKey } from '@/lib/keys.ts';
+
+const $tooltip = inject<TooltipRegistry>($tooltipKey);
+
+function setTarget(e: MouseEvent) {
+	$tooltip?.update(e.target as HTMLElement, { text: 'Hello World' });
+}
 </script>
 
 <template>
 	<section class="flex flex-col h-screen">
 		<AppHeader />
+		<AppRootTooltip />
 		<main class="flex-1 relative">
 			<AppWelcome />
-			<button ref="target">
+			<button v-tooltip="{ text: 'Hello World' }" @click="setTarget">
 				target
 			</button>
-			<AppTooltip text="Hello World" :target />
 		</main>
 	</section>
 </template>

@@ -1,15 +1,12 @@
 <script lang='ts' setup>
-import type { Instance, Placement } from '@popperjs/core';
+import type { Instance } from '@popperjs/core';
 
 import { createPopper } from '@popperjs/core';
 import { onUnmounted, ref, useTemplateRef, watch } from 'vue';
 
-const $props = withDefaults(defineProps<{
-	text: string;
-	showArrow?: boolean;
-	placement?: Placement;
-	target: HTMLElement | null;
-}>(), { showArrow: true, placement: 'top' });
+import type { TooltipProps } from '@/lib/types';
+
+const $props = withDefaults(defineProps<TooltipProps>(), { showArrow: true, placement: 'top' });
 
 const initialized = ref(false);
 const showTooltip = ref(false);
