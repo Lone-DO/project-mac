@@ -18,6 +18,9 @@ export const FONT_WEIGHTS = {
 	title: { min: 400, max: 900, default: 400 },
 };
 
+export const DEFAULT_TOOLTIP_SHOW: (keyof HTMLElementEventMap)[] = ['mouseenter', 'focus'];
+export const DEFAULT_TOOLTIP_HIDE: (keyof HTMLElementEventMap)[] = ['mouseleave', 'blur'];
+
 export const DOCK_APPS: DockApp[] = [
 	{ id: 'finder', label: 'Portfolio', imgSrc: 'app-icons/finder.png', canOpen: true },
 	{ id: 'safari', label: 'Articles', imgSrc: 'app-icons/safari.png', canOpen: true },

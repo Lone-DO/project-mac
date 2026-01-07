@@ -10,7 +10,11 @@ import { controlLinks, navLinks } from '@/lib/constants';
 		<p>Losovoj's Portfolio</p>
 		<nav id="app-header_navigation">
 			<ul>
-				<li v-for="(opt) in navLinks" :key="opt.label">
+				<li
+					v-for="(opt) in navLinks"
+					:key="opt.label"
+					v-tooltip="opt.label"
+				>
 					<span>{{ opt.label }}</span>
 				</li>
 			</ul>

@@ -4,47 +4,74 @@ import type { Instance } from '@popperjs/core';
 import { createPopper } from '@popperjs/core';
 import { onUnmounted, ref, useTemplateRef, watch } from 'vue';
 
-import type { TooltipProps } from '@/lib/types';
+import type { TooltipProps, TooltipTarget } from '@/lib/types';
 
-const $props = withDefaults(defineProps<TooltipProps>(), { showArrow: true, placement: 'top' });
+import { DEFAULT_TOOLTIP_HIDE, DEFAULT_TOOLTIP_SHOW } from '@/lib/constants';
 
-const initialized = ref(false);
+const $props = withDefaults(defineProps<TooltipProps>(), {
+	showArrow: true,
+	placement: 'top',
+	hideBy: () => DEFAULT_TOOLTIP_HIDE,
+	toggleBy: () => DEFAULT_TOOLTIP_SHOW,
+});
+
+const internalShowEvents = ref([...DEFAULT_TOOLTIP_SHOW]);
+const internalHideEvents = ref([...DEFAULT_TOOLTIP_HIDE]);
+
 const showTooltip = ref(false);
 const tooltip = useTemplateRef('tooltip');
 const popperInstance = ref<Instance | null>(null);
 
-const showEvents = ['mouseover', 'focus'];
-const hideEvents = ['mouseleave', 'blur'];
-
 const show = () => (showTooltip.value = true);
 const hide = () => (showTooltip.value = false);
 
-function init(target = $props.target) {
-	if (!target || !tooltip.value || initialized.value) {
-		return;
+function attach(el: TooltipTarget) {
+	if (el) {
+		internalShowEvents.value.forEach(event => el?.addEventListener(event, show));
+		internalHideEvents.value.forEach(event => el?.addEventListener(event, hide));
 	}
-	const options = { placement: $props.placement };
-
-	showEvents.forEach((event) => {
-		target?.addEventListener(event, show);
-	});
-
-	hideEvents.forEach((event) => {
-		target?.addEventListener(event, hide);
-	});
-
-	popperInstance.value = createPopper(target, tooltip.value, options);
-	initialized.value = true;
 }
 
-/**
- * on Target Valid, Initialize PopperJs
- * TODO: Update Tooltip Target onChange, for future v-tooltip directive
- * Required destroying previous instance and building fresh based on updated target
- * I.E popperInstance.destroy() && init()
- * https://share.google/aimode/W4N8sKEAcSf8XgGs3
- */
-watch(() => $props.target, init);
+function detach(el: TooltipTarget = $props.target) {
+	if (el) {
+		internalShowEvents.value.forEach(event => el?.removeEventListener(event, show));
+		internalHideEvents.value.forEach(event => el?.removeEventListener(event, hide));
+	}
+}
+
+function init(target = $props.target, defaultVisible = false) {
+	if (target && tooltip.value) {
+		/**
+		 * Required destroying previous instance and building fresh based on updated target
+		 * https://share.google/aimode/W4N8sKEAcSf8XgGs3
+		 */
+		popperInstance.value?.destroy();
+		const options = { placement: $props.placement };
+		popperInstance.value = createPopper(target, tooltip.value, options);
+		if (defaultVisible) {
+			showTooltip.value = true;
+		}
+	}
+}
+
+onUnmounted(() => detach($props.target));
+
+watch(() => $props.target, (newTarget, oldTarget) => {
+	if (newTarget) {
+		if (oldTarget) {
+			detach(oldTarget);
+		}
+		if ($props.toggleBy?.length) {
+			internalShowEvents.value = [...$props.toggleBy];
+		}
+		if ($props.hideBy?.length) {
+			internalHideEvents.value = [...$props.hideBy];
+		}
+		attach(newTarget);
+		init(newTarget);
+	}
+});
+
 watch(showTooltip, (bool) => {
 	/** https://popper.js.org/docs/v2/tutorial/#performance */
 	if (bool) {
@@ -59,16 +86,6 @@ watch(showTooltip, (bool) => {
 			{ name: 'eventListeners', enabled: bool },
 		],
 	}));
-});
-
-onUnmounted(() => {
-	showEvents.forEach((event) => {
-		$props.target?.removeEventListener(event, show);
-	});
-
-	hideEvents.forEach((event) => {
-		$props.target?.removeEventListener(event, hide);
-	});
 });
 </script>
 

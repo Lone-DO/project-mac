@@ -1,26 +1,21 @@
 <script setup lang="ts">
-import { computed, inject, watch } from 'vue';
+import { computed } from 'vue';
 
-import type { TooltipProps, TooltipRegistry } from '@/lib/types';
+import type { TooltipProps } from '@/lib/types';
 
 import { AppTooltip } from '@/components';
-import { $tooltipKey } from '@/lib/keys.ts';
+import { DEFAULT_TOOLTIP_HIDE, DEFAULT_TOOLTIP_SHOW } from '@/lib/constants';
+import { useTooltipRegistry } from '@/stores/tooltip-registry.ts';
 
-const $tooltip = inject<TooltipRegistry>($tooltipKey);
-
-watch(() => $tooltip, (newValue) => {
-	console.log(newValue);
-}, { immediate: true });
-
-function setTarget(e: MouseEvent) {
-	$tooltip?.update(e.target as HTMLElement, { text: 'Hello World' });
-}
+const $tooltip = useTooltipRegistry();
 
 const tooltipProps = computed<TooltipProps>(() => ({
-	text: $tooltip?.options.value.text || '',
-	showArrow: $tooltip?.options.value.showArrow || false,
-	placement: $tooltip?.options.value.placement,
-	target: $tooltip?.target.value || null,
+	target: $tooltip?.target,
+	hideBy: DEFAULT_TOOLTIP_HIDE,
+	toggleBy: DEFAULT_TOOLTIP_SHOW,
+	text: $tooltip?.options.text || '',
+	placement: $tooltip?.options.placement,
+	showArrow: $tooltip?.options.showArrow || false,
 }));
 </script>
 

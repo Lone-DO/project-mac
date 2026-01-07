@@ -15,13 +15,24 @@ export default defineConfig({
 	},
 	css: {
 		devSourcemap: true,
-		preprocessorOptions: {
-			scss: {
-				additionalData: `
-          @reference '@/assets/styles/index.css';
-        `,
-				api: 'modern-compiler', // or "modern"
-			},
+	},
+	build: {
+		commonjsOptions: {
+			esmExternals: true,
 		},
+		// lib: {
+		// 	entry: resolve(__dirname, 'src/main.ts'),
+		// 	name: 'MacOs',
+		// 	fileName: 'project-macos',
+		// },
+		// rollupOptions: {
+		// 	external: ['vue', 'pinia'],
+		// 	output: {
+		// 		globals: {
+		// 			vue: 'Vue',
+		// 			pinia: 'pinia',
+		// 		},
+		// 	},
+		// },
 	},
 });
