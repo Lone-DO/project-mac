@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { onMounted, useTemplateRef } from 'vue';
 
 import TextUnpacker from '@/components/app/text-unpacker.vue';
-import { FONT_WEIGHTS } from '@/constants';
+import { FONT_WEIGHTS } from '@/lib/constants';
 
 const titleRef = useTemplateRef('title');
 const subTitleRef = useTemplateRef('subtitle');

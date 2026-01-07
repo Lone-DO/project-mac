@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import dayjs from 'dayjs';
 
-import { controlLinks, navLinks } from '@/constants';
+import { controlLinks, navLinks } from '@/lib/constants';
 </script>
 
 <template>
@@ -10,7 +10,11 @@ import { controlLinks, navLinks } from '@/constants';
 		<p>Losovoj's Portfolio</p>
 		<nav id="app-header_navigation">
 			<ul>
-				<li v-for="(opt) in navLinks" :key="opt.label">
+				<li
+					v-for="(opt) in navLinks"
+					:key="opt.label"
+					v-tooltip="opt.label"
+				>
 					<span>{{ opt.label }}</span>
 				</li>
 			</ul>
@@ -18,7 +22,7 @@ import { controlLinks, navLinks } from '@/constants';
 		<div id="app-header_control-panel">
 			<ul>
 				<li v-for="(opt) in controlLinks" :key="opt.label">
-					<img :src="`/images/${opt.img}`" :alt="opt.label">
+					<img :src="`/images/${opt.imgSrc}`" :alt="opt.label">
 				</li>
 			</ul>
 			<time>{{ dayjs().format('ddd MMM D h:mm A') }}</time>

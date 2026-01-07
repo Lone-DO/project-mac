@@ -1,6 +1,14 @@
-import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
 import './assets/styles/index.css';
+import { createApp } from 'vue';
+
+import { vTooltip } from '@/lib/directives/v-tooltip.ts';
+
 import App from './app.vue';
 
-createApp(App).mount('#app');
+const app = createApp(App);
+
+app.use(createPinia());
+app.directive('tooltip', vTooltip);
+app.mount('#app');

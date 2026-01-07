@@ -14,8 +14,10 @@
 		"typecheck": "nuxi typecheck"
 	},
 	"dependencies": {
+		"@popperjs/core": "^2.11.8",
 		"dayjs": "^1.11.19",
 		"gsap": "^3.14.2",
+		"pinia": "^3.0.4",
 		"vue": "^3.5.26"
 	},
 	"devDependencies": {

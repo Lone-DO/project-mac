@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import { AppHeader, AppWelcome } from '@/components';
+import { AppHeader, AppRootTooltip, AppWelcome } from '@/components';
 </script>
 
 <template>
 	<section class="flex flex-col h-screen">
 		<AppHeader />
+		<AppRootTooltip />
 		<main class="flex-1 relative">
 			<AppWelcome />
+			<button v-tooltip="{ text: 'Hello World', placement: 'right' }">
+				target
+			</button>
 		</main>
 	</section>
 </template>
