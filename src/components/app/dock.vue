@@ -2,24 +2,21 @@
 import gsap from 'gsap';
 import { onMounted, onUnmounted, ref, useTemplateRef } from 'vue';
 
-import type { DockApp, DockListeners } from '@/lib/types/index.ts';
+import type { DockApp, DockListeners } from '@/lib/types';
 
-import { DOCK_APPS } from '@/lib/constants/index.ts';
+import { DOCK_APPS } from '@/lib/constants';
+import { useWindowStore } from '@/stores';
 
+const windowStore = useWindowStore();
 const dockElement = useTemplateRef('dock');
 const iconElements = useTemplateRef('dock-icon');
+
 const gsapBaseOpts = {
 	scale: 1,
 	y: 0,
 	duration: 0.3,
 	ease: 'power1.out',
 };
-
-function openApp(opt: DockApp) {
-	console.log('openApp', opt);
-}
-
-onMounted(init);
 
 const listeners = ref<DockListeners>([]);
 
@@ -62,6 +59,7 @@ function init() {
 	listeners.value.push([dockElement.value, 'mouseleave', resetIcons]);
 }
 
+onMounted(init);
 onUnmounted(() => {
 	listeners.value.forEach(([el, listener, callback]) => {
 		if (el && listener && callback) {
@@ -69,6 +67,10 @@ onUnmounted(() => {
 		}
 	});
 });
+
+function openApp(app: DockApp) {
+	return (!app || !app.canOpen) ? null : windowStore.openWindow(app.id);
+}
 </script>
 
 <template>

@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 import type { TooltipOptions, TooltipTarget } from '@/lib/types';
 
-export const useTooltipRegistry = defineStore('tooltip-registry', () => {
+export const useTooltipStore = defineStore('tooltip-registry', () => {
 	const initialState: TooltipOptions = {
 		text: '',
 		showArrow: true,

@@ -2,13 +2,13 @@ import type { Directive } from 'vue';
 
 import type { TooltipOptions } from '@/lib/types';
 
-import { useTooltipRegistry } from '@/stores/tooltip-registry.ts';
+import { useTooltipStore } from '@/stores';
 
 let listener: null | (() => any) = null;
 
 export const vTooltip: Directive = {
 	mounted(el: HTMLElement, binding) {
-		const $tooltip = useTooltipRegistry();
+		const $tooltip = useTooltipStore();
 		listener = () => {
 			let opts: TooltipOptions = { text: '' };
 			if (typeof binding.value === 'string') {
