@@ -11,6 +11,7 @@ import { DEFAULT_TOOLTIP_HIDE, DEFAULT_TOOLTIP_SHOW } from '@/lib/constants';
 const $props = withDefaults(defineProps<TooltipProps>(), {
 	showArrow: true,
 	placement: 'top',
+	offset: () => [0, 10],
 	hideBy: () => DEFAULT_TOOLTIP_HIDE,
 	toggleBy: () => DEFAULT_TOOLTIP_SHOW,
 });
@@ -46,8 +47,12 @@ function init(target = $props.target, defaultVisible = false) {
 		 * https://share.google/aimode/W4N8sKEAcSf8XgGs3
 		 */
 		popperInstance.value?.destroy();
-		const options = { placement: $props.placement };
-		popperInstance.value = createPopper(target, tooltip.value, options);
+		popperInstance.value = createPopper(target, tooltip.value, {
+			placement: $props.placement,
+			modifiers: [
+				{ name: 'offset', options: { offset: $props.offset } },
+			],
+		});
 		if (defaultVisible) {
 			showTooltip.value = true;
 		}
@@ -93,6 +98,7 @@ watch(showTooltip, (bool) => {
 	<div
 		ref="tooltip"
 		class="tooltip"
+		:class="$props.class"
 		role="tooltip"
 		aria-describedby="tooltip"
 		:data-show="showTooltip || null"
@@ -112,17 +118,14 @@ watch(showTooltip, (bool) => {
 
 <style scoped>
 .tooltip {
+	/* TODO: Turn this into a global variable that can be interchanged based on selected macos Theme */
+	@apply py-1! px-3! text-xs! rounded-md! bg-blue-200! text-blue-900! shadow-2xl!;
 	position: relative;
 	display: none;
-	background-color: #333;
-	color: white;
-	padding: 5px 10px;
-	border-radius: 4px;
-	font-size: 13px;
 }
 
 .tooltip[data-show] {
-	display: block;
+	@apply block;
 }
 
 .tooltip[data-popper-placement^='top'] > .tooltip-arrow {
