@@ -5,9 +5,9 @@ import type { TooltipProps } from '@/lib/types';
 
 import { AppTooltip } from '@/components';
 import { DEFAULT_TOOLTIP_HIDE, DEFAULT_TOOLTIP_SHOW } from '@/lib/constants';
-import { useTooltipRegistry } from '@/stores/tooltip-registry.ts';
+import { useTooltipStore } from '@/stores';
 
-const $tooltip = useTooltipRegistry();
+const $tooltip = useTooltipStore();
 
 const tooltipProps = computed<TooltipProps>(() => ({
 	target: $tooltip?.target,
@@ -21,5 +21,5 @@ const tooltipProps = computed<TooltipProps>(() => ({
 </script>
 
 <template>
-	<AppTooltip v-bind="tooltipProps" class="z-99" />
+	<AppTooltip v-bind="tooltipProps" class="z-99999" />
 </template>

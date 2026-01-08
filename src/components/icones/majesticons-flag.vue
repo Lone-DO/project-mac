@@ -1,0 +1,25 @@
+<script lang="ts">
+export default {
+	name: 'MajesticonsFlag',
+};
+</script>
+
+<template>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width="1em"
+		height="1em"
+		viewBox="0 0 24 24"
+	><!-- Icon from Majesticons by Gerrit Halfmann - https://github.com/halfmage/majesticons/blob/main/LICENSE -->
+		<g>
+			<path fill="#888888" d="M19 5H5v9h14z" />
+			<path
+				stroke="#888888"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				d="M5 20v-6m0-9h14v9H5m0-9v9m0-9V4"
+			/>
+		</g>
+	</svg>
+</template>
