@@ -21,5 +21,5 @@ const tooltipProps = computed<TooltipProps>(() => ({
 </script>
 
 <template>
-	<AppTooltip v-bind="tooltipProps" class="z-99" />
+	<AppTooltip v-bind="tooltipProps" class="z-99999" />
 </template>
