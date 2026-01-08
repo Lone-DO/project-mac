@@ -16,9 +16,10 @@ const tooltipProps = computed<TooltipProps>(() => ({
 	text: $tooltip?.options.text || '',
 	placement: $tooltip?.options.placement,
 	showArrow: $tooltip?.options.showArrow || false,
+	class: $tooltip?.options.class || 'cat',
 }));
 </script>
 
 <template>
-	<AppTooltip v-bind="tooltipProps" />
+	<AppTooltip v-bind="tooltipProps" class="z-99" />
 </template>
