@@ -1,5 +1,11 @@
 <script setup lang="ts">
+import gsap from 'gsap';
+import Draggable from 'gsap/dist/Draggable';
+
 import { AppDock, AppHeader, AppRootTooltip, AppWelcome } from '@/components';
+import { TerminalWindow } from '@/components/windows';
+
+gsap.registerPlugin(Draggable);
 </script>
 
 <template>
@@ -9,6 +15,7 @@ import { AppDock, AppHeader, AppRootTooltip, AppWelcome } from '@/components';
 		<main class="flex-1 relative">
 			<AppWelcome />
 			<AppDock />
+			<TerminalWindow />
 		</main>
 	</section>
 </template>

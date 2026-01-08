@@ -1,4 +1,4 @@
-import type { DockApp, WindowConfig } from '@/lib/types';
+import type { DockApp } from '@/lib/types';
 
 export const navLinks = [
 	{ label: 'Portfolio', link: '/' },
@@ -32,8 +32,9 @@ export const DOCK_APPS: DockApp[] = [
 
 export const INITIAL_Z_INDEX = 1000;
 
-export const WINDOW_CONFIG: WindowConfig = {
+export const WINDOW_CONFIG = {
 	finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+	trash: { isOpen: false, zIndex: null, data: null },
 	contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
@@ -42,3 +43,25 @@ export const WINDOW_CONFIG: WindowConfig = {
 	txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };
+export const TECH_STACK = [
+	{
+		category: 'Frontend',
+		items: ['Vue.js', 'Angular.js', 'React.js', 'Nuxt.js', 'TypeScript'],
+	},
+	{
+		category: 'Styling',
+		items: ['Tailwind CSS', 'Sass', 'CSS'],
+	},
+	{
+		category: 'Backend',
+		items: ['Node.js', 'Express', 'NuxtJs', 'SQL'],
+	},
+	{
+		category: 'Database',
+		items: ['MongoDB', 'Supabase', 'Turso'],
+	},
+	{
+		category: 'Dev Tools',
+		items: ['Git', 'GitHub', 'Docker'],
+	},
+];

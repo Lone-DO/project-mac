@@ -3,5 +3,8 @@ import AppHeader from './app/header.vue';
 import AppRootTooltip from './app/tooltip-root.vue';
 import AppTooltip from './app/tooltip.vue';
 import AppWelcome from './app/welcome.vue';
-
-export { AppDock, AppHeader, AppRootTooltip, AppTooltip, AppWelcome };
+import MajesticonsCheckLine from './icones/majesticons-check-line.vue';
+import MajesticonsFlag from './icones/majesticons-flag.vue';
+/** Windows */
+export * from './windows';
+export { AppDock, AppHeader, AppRootTooltip, AppTooltip, AppWelcome, MajesticonsCheckLine, MajesticonsFlag };
