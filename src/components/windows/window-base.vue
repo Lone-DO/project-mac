@@ -27,7 +27,7 @@ const hideMenu = computed(() => {
 <template>
 	<section
 		v-if="window?.isOpen"
-		class="window absolute"
+		class="window absolute sm:max-w-full sm:max-h-full max-sm:w-full max-sm:h-full"
 		:style="{ zIndex: `${window.zIndex}` }"
 	>
 		<aside v-if="!hideMenu" class="window_menu">
@@ -61,11 +61,15 @@ const hideMenu = computed(() => {
 	@apply max-w-2xl absolute sm:top-40 sm:left-1/6 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden flex;
 
 	.window_body {
-		@apply flex flex-col;
+		@apply flex flex-col overflow-hidden;
+	}
+
+	.window_content {
+		@apply overflow-y-auto overflow-x-hidden;
 	}
 
 	.window_menu {
-		@apply flex flex-col gap-4 border-r-2 border-gray-200;
+		@apply flex flex-col gap-4 border-r-2 border-gray-200 shrink-0;
 	}
 
 	.window_header {

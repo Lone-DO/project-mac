@@ -1,5 +1,7 @@
 import type { DockApp } from '@/lib/types';
 
+export * from './app-store.ts';
+
 export const navLinks = [
 	{ label: 'Portfolio', link: '/' },
 	{ label: 'Contact', link: '/' },
@@ -36,7 +38,7 @@ export const WINDOW_CONFIG = {
 	finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-	store: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+	store: { isOpen: true, zIndex: INITIAL_Z_INDEX, data: null },
 	photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
@@ -66,14 +68,4 @@ export const TECH_STACK = [
 		category: 'Dev Tools',
 		items: ['Git', 'GitHub', 'Docker'],
 	},
-];
-
-export const STORE_CATEGORIES = [
-	{ label: 'Discover', imgSrc: 'icons/star.svg' },
-	{ label: 'Create', imgSrc: 'icons/create.svg' },
-	{ label: 'Work', imgSrc: 'icons/paper-plane.svg' },
-	{ label: 'Play', imgSrc: 'icons/rocket.svg' },
-	{ label: 'Develop', imgSrc: 'icons/hammer.png' },
-	{ label: 'Categories', imgSrc: 'icons/category.svg' },
-	{ label: 'Updates', imgSrc: 'icons/download.svg', subLabel: '2' },
 ];
