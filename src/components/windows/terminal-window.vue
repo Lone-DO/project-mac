@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 
-import MajesticonsCheckLine from '@/components/icones/majesticons-check-line.vue';
-import MajesticonsFlag from '@/components/icones/majesticons-flag.vue';
 import WindowBase from '@/components/windows/window-base.vue';
 import { DOCK_APPS, TECH_STACK } from '@/lib/constants';
 
@@ -26,7 +24,11 @@ const app = computed(() => DOCK_APPS.find(({ id }) => id === 'terminal'));
 			</div>
 			<ul class="terminal_content">
 				<li v-for="set in TECH_STACK" :key="set.category">
-					<MajesticonsCheckLine class="terminal_check" />
+					<img
+						src="/images/icons/majesticons-check-line.svg"
+						class="terminal_check"
+						alt="checkmark"
+					>
 					<h3>{{ set.category }}</h3>
 					<ul>
 						<li v-for="(item, index) in set.items" :key="item">
@@ -38,11 +40,19 @@ const app = computed(() => DOCK_APPS.find(({ id }) => id === 'terminal'));
 			</ul>
 			<div class="terminal_footnote">
 				<p>
-					<MajesticonsCheckLine class="terminal_check" />
+					<img
+						src="/images/icons/majesticons-check-line.svg"
+						class="terminal_check"
+						alt="checkmark"
+					>
 					<span>5 of 5 loaded Successfully (100%)</span>
 				</p>
 				<p class="text-black">
-					<MajesticonsFlag />
+					<img
+						src="/images/icons/majesticons-flag.svg"
+						class="terminal_check"
+						alt="flag"
+					>
 					<span>Render time: 9ms</span>
 				</p>
 			</div>
