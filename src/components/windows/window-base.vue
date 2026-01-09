@@ -1,8 +1,9 @@
 <script lang='ts' setup>
-import { computed } from 'vue';
+import { computed, useSlots } from 'vue';
 
 import type { WINDOW_CONFIG } from '@/lib/constants';
 
+import WindowController from '@/components/windows/window-controller.vue';
 import { useWindowStore } from '@/stores';
 
 const $props = defineProps<{
@@ -11,57 +12,67 @@ const $props = defineProps<{
 }>();
 
 const windowStore = useWindowStore();
-
+const $slots = useSlots();
 const window = computed(() => $props.windowKey && windowStore.windows[$props.windowKey]);
+
+function onMaximize() {
+	// console.log('Maximize Window');
+}
+
+const hideMenu = computed(() => {
+	return !$slots.menu;
+});
 </script>
 
 <template>
 	<section
-		v-if="window"
-		class="app-window absolute"
+		v-if="window?.isOpen"
+		class="window absolute"
 		:style="{ zIndex: `${window.zIndex}` }"
 	>
-		<header class="app-window_header">
-			<div class="app-window_controls">
-				<span class="app-window_close" />
-				<span class="app-window_minimize" />
-				<span class="app-window_maximize" />
+		<aside v-if="!hideMenu" class="window_menu">
+			<WindowController
+				class="p-4"
+				@close="windowStore.closeWindow(windowKey)"
+				@maximize="onMaximize"
+			/>
+			<slot name="menu" />
+		</aside>
+		<div class="window_body">
+			<header class="window_header">
+				<WindowController
+					v-if="hideMenu"
+					@close="windowStore.closeWindow(windowKey)"
+					@maximize="onMaximize"
+				/>
+				<h3 class="window_title">
+					{{ title }}
+				</h3>
+			</header>
+			<div class="window_content">
+				<slot />
 			</div>
-			<h3 class="app-window_title">
-				{{ title }}
-			</h3>
-		</header>
-		<div class="p-4">
-			<slot />
 		</div>
 	</section>
 </template>
 
 <style scoped>
-.app-window {
-	@apply max-w-2xl absolute sm:top-40 sm:left-1/6 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+.window {
+	@apply max-w-2xl absolute sm:top-40 sm:left-1/6 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden flex;
 
-	.app-window_controls {
-		@apply flex gap-2;
+	.window_body {
+		@apply flex flex-col;
 	}
 
-	.app-window_close {
-		@apply size-3.5 rounded-full bg-[#ff6157] cursor-pointer;
+	.window_menu {
+		@apply flex flex-col gap-4 border-r-2 border-gray-200;
 	}
 
-	.app-window_minimize {
-		@apply size-3.5 rounded-full bg-[#ffc030];
+	.window_header {
+		@apply px-4 py-3 text-sm flex items-center rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-gray-400;
 	}
 
-	.app-window_maximize {
-		@apply size-3.5 rounded-full bg-[#2acb42];
-	}
-
-	.app-window_header {
-		@apply flex items-center px-4 py-3 rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-sm text-gray-400;
-	}
-
-	.app-window_title {
+	.window_title {
 		@apply flex-1 text-center text-neutral-400 font-bold;
 	}
 }

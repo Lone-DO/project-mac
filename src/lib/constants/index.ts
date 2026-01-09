@@ -22,8 +22,8 @@ export const DEFAULT_TOOLTIP_SHOW: (keyof HTMLElementEventMap)[] = ['mouseenter'
 export const DEFAULT_TOOLTIP_HIDE: (keyof HTMLElementEventMap)[] = ['mouseleave', 'blur'];
 
 export const DOCK_APPS: DockApp[] = [
+	{ id: 'store', label: 'Projects', imgSrc: 'app-icons/app-store.svg', canOpen: true },
 	{ id: 'finder', label: 'Portfolio', imgSrc: 'app-icons/finder.png', canOpen: true },
-	{ id: 'safari', label: 'Articles', imgSrc: 'app-icons/safari.png', canOpen: true },
 	{ id: 'photos', label: 'Gallery', imgSrc: 'app-icons/photos.png', canOpen: true },
 	{ id: 'contact', label: 'Contact', imgSrc: 'app-icons/contact.png', canOpen: true },
 	{ id: 'terminal', label: 'Skills', imgSrc: 'app-icons/terminal.png', canOpen: true },
@@ -34,14 +34,16 @@ export const INITIAL_Z_INDEX = 1000;
 
 export const WINDOW_CONFIG = {
 	finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-	trash: { isOpen: false, zIndex: null, data: null },
 	contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-	safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+	store: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+	/** Others */
+	safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+	trash: { isOpen: false, zIndex: null, data: null },
 };
 export const TECH_STACK = [
 	{
@@ -64,4 +66,14 @@ export const TECH_STACK = [
 		category: 'Dev Tools',
 		items: ['Git', 'GitHub', 'Docker'],
 	},
+];
+
+export const STORE_CATEGORIES = [
+	{ label: 'Discover', imgSrc: 'icons/star.svg' },
+	{ label: 'Create', imgSrc: 'icons/create.svg' },
+	{ label: 'Work', imgSrc: 'icons/paper-plane.svg' },
+	{ label: 'Play', imgSrc: 'icons/rocket.svg' },
+	{ label: 'Develop', imgSrc: 'icons/hammer.png' },
+	{ label: 'Categories', imgSrc: 'icons/category.svg' },
+	{ label: 'Updates', imgSrc: 'icons/download.svg', subLabel: '2' },
 ];

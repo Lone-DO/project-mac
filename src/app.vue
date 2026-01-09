@@ -2,8 +2,7 @@
 import gsap from 'gsap';
 import Draggable from 'gsap/dist/Draggable';
 
-import { AppDock, AppHeader, AppRootTooltip, AppWelcome } from '@/components';
-import { TerminalWindow } from '@/components/windows';
+import { AppDock, AppHeader, AppRootTooltip, AppStoreWindow, AppWelcome, TerminalWindow } from '@/components';
 
 gsap.registerPlugin(Draggable);
 </script>
@@ -16,6 +15,7 @@ gsap.registerPlugin(Draggable);
 			<AppWelcome />
 			<AppDock />
 			<TerminalWindow />
+			<AppStoreWindow />
 		</main>
 	</section>
 </template>

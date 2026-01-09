@@ -28,7 +28,7 @@ export const useWindowStore = defineStore('windowStore', () => {
 		}
 	}
 
-	function closeWindow(windowKey: string) {
+	function closeWindow(windowKey?: string) {
 		const window = windows.value[windowKey as keyof (typeof WINDOW_CONFIG)];
 		if (window) {
 			window.isOpen = false;
@@ -37,7 +37,7 @@ export const useWindowStore = defineStore('windowStore', () => {
 		}
 	}
 
-	function focusWindow(windowKey: string) {
+	function focusWindow(windowKey?: string) {
 		const window = windows.value[windowKey as keyof (typeof WINDOW_CONFIG)];
 		if (window) {
 			window.isOpen = true;
