@@ -9,7 +9,10 @@ import { useWindowStore } from '@/stores';
 const $props = defineProps<{
 	title: string;
 	windowKey?: (keyof (typeof WINDOW_CONFIG));
+	showBackArrow?: boolean;
 }>();
+
+defineEmits(['onBack']);
 
 const windowStore = useWindowStore();
 const $slots = useSlots();
@@ -45,6 +48,14 @@ const hideMenu = computed(() => {
 					@close="windowStore.closeWindow(windowKey)"
 					@maximize="onMaximize"
 				/>
+				<button
+					v-if="showBackArrow"
+					v-tooltip="'Navigate Back'"
+					class="cursor-pointer text-2xl"
+					@click="$emit('onBack')"
+				>
+					&lt;
+				</button>
 				<h3 class="window_title">
 					{{ title }}
 				</h3>
@@ -58,14 +69,14 @@ const hideMenu = computed(() => {
 
 <style scoped>
 .window {
-	@apply max-w-2xl absolute sm:top-40 sm:left-1/6 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden flex;
+	@apply max-w-full absolute sm:top-1/10 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden flex;
 
 	.window_body {
-		@apply flex flex-col overflow-hidden;
+		@apply flex flex-1 flex-col overflow-hidden;
 	}
 
 	.window_content {
-		@apply overflow-y-auto overflow-x-hidden;
+		@apply overflow-y-auto overflow-x-hidden flex-1 overflow-hidden;
 	}
 
 	.window_menu {

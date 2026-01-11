@@ -3,8 +3,11 @@ import gsap from 'gsap';
 import Draggable from 'gsap/dist/Draggable';
 
 import { AppDock, AppHeader, AppRootTooltip, AppStoreWindow, AppWelcome, TerminalWindow } from '@/components';
+import { useWindowStore } from '@/stores';
 
 gsap.registerPlugin(Draggable);
+
+const windowStore = useWindowStore();
 </script>
 
 <template>
@@ -14,8 +17,8 @@ gsap.registerPlugin(Draggable);
 		<main class="flex-1 relative">
 			<AppWelcome />
 			<AppDock />
-			<TerminalWindow />
-			<AppStoreWindow />
+			<TerminalWindow v-if="windowStore.windows.terminal.isOpen" />
+			<AppStoreWindow v-if="windowStore.windows.store.isOpen" />
 		</main>
 	</section>
 </template>
