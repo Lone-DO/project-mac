@@ -1,4 +1,5 @@
-import AppStoreWindow from './app-store-window.vue';
 import TerminalWindow from './terminal-window.vue';
+import WindowBase from './window-base.vue';
 
-export { AppStoreWindow, TerminalWindow };
+export * from './appStore';
+export { TerminalWindow, WindowBase };

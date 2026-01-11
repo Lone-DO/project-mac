@@ -9,17 +9,18 @@ let listener: null | (() => any) = null;
 export const vTooltip: Directive = {
 	mounted(el: HTMLElement, binding) {
 		const $tooltip = useTooltipStore();
+		let opts: TooltipOptions = { text: '' };
+		if (typeof binding.value === 'string') {
+			opts.text = binding.value;
+		}
+		else if (binding.value && typeof binding.value === 'object') {
+			opts = binding.value as TooltipOptions;
+		}
 		listener = () => {
-			let opts: TooltipOptions = { text: '' };
-			if (typeof binding.value === 'string') {
-				opts.text = binding.value;
-			}
-			else if (binding.value && typeof binding.value === 'object') {
-				opts = binding.value as TooltipOptions;
-			}
 			$tooltip?.update(el, opts);
 		};
 		el?.addEventListener('mouseover', listener);
+		el?.setAttribute('aria-title', opts.text || '');
 	},
 	unmounted(el: HTMLElement) {
 		if (listener) {
