@@ -2,6 +2,9 @@
 import dayjs from 'dayjs';
 
 import { controlLinks, navLinks } from '@/lib/constants';
+import { useWindowStore } from '@/stores';
+
+const windowStore = useWindowStore();
 </script>
 
 <template>
@@ -13,7 +16,7 @@ import { controlLinks, navLinks } from '@/lib/constants';
 				<li
 					v-for="(opt) in navLinks"
 					:key="opt.label"
-					v-tooltip="opt.label"
+					@click="windowStore.openWindow(opt.id)"
 				>
 					<span>{{ opt.label }}</span>
 				</li>

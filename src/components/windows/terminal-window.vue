@@ -13,7 +13,7 @@ const app = computed(() => DOCK_APPS.find(({ id }) => id === 'terminal'));
 		title="Tech Stack"
 		:window-key="app?.id"
 	>
-		<div class="terminal-body">
+		<div class="terminal-body p-4">
 			<p>
 				<span class="font-bold">@losovoj % </span>
 				<span>show tech stack</span>
