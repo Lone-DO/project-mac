@@ -9,8 +9,8 @@ const maxPage = ref(2);
 const page = ref(1);
 const isNextDisabled = computed(() => page.value >= maxPage.value);
 const isPrevDisabled = computed(() => page.value <= 1);
-const nextPage = () => (!isNextDisabled.value) && page.value++;
-const prevPage = () => (!isPrevDisabled.value) && page.value--;
+const nextPage = () => (!isNextDisabled.value) && (page.value += 1);
+const prevPage = () => (!isPrevDisabled.value) && (page.value -= 1);
 </script>
 
 <template>
