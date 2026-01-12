@@ -1,11 +1,11 @@
-import type { DockApp } from '@/lib/types';
+import type { DockApp, NavLink } from '@/lib/types';
 
 export * from './app-store.ts';
 
-export const navLinks = [
-	{ label: 'Portfolio', link: '/' },
-	{ label: 'Contact', link: '/' },
-	{ label: 'Projects', link: '/' },
+export const navLinks: NavLink[] = [
+	{ label: 'Contact', id: 'contact' },
+	{ label: 'Projects', id: 'store' },
+	{ label: 'Resume', id: 'resume' },
 ];
 
 export const controlLinks = [
@@ -38,7 +38,7 @@ export const WINDOW_CONFIG = {
 	finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-	store: { isOpen: true, zIndex: INITIAL_Z_INDEX, data: null },
+	store: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },

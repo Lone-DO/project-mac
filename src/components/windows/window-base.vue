@@ -59,6 +59,7 @@ const hideMenu = computed(() => {
 				<h3 class="window_title">
 					{{ title }}
 				</h3>
+				<slot name="controller" />
 			</header>
 			<div class="window_content">
 				<slot />

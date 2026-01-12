@@ -20,3 +20,8 @@ export type Projects = {
 	category: string;
 	items: Project[];
 }[];
+
+export type NavLink = {
+	label: string;
+	id: keyof (typeof WINDOW_CONFIG);
+};
