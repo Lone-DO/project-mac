@@ -1,5 +1,6 @@
 <script lang='ts' setup>
-import { computed, useSlots } from 'vue';
+import Draggable from 'gsap/dist/Draggable';
+import { computed, onMounted, useSlots, useTemplateRef } from 'vue';
 
 import type { WINDOW_CONFIG } from '@/lib/constants';
 
@@ -25,11 +26,17 @@ function onMaximize() {
 const hideMenu = computed(() => {
 	return !$slots.menu;
 });
+
+const DOM = useTemplateRef('window');
+onMounted(() => {
+	Draggable.create(DOM.value);
+});
 </script>
 
 <template>
 	<section
 		v-if="window?.isOpen"
+		ref="window"
 		class="window absolute sm:max-w-full sm:max-h-full max-sm:w-full max-sm:h-full"
 		:style="{ zIndex: `${window.zIndex}` }"
 	>
