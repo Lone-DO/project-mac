@@ -1,17 +1,13 @@
 import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'node:path';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 import vueDevTools from 'vite-plugin-vue-devtools';
 import tailwindAutoReference from 'vite-plugin-vue-tailwind-auto-reference';
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => {
-	const env = loadEnv(mode, process.cwd(), '');
+export default defineConfig(() => {
 	return defineConfig({
-		define: {
-			'process.env': env,
-		},
 		plugins: [
 			tailwindAutoReference('./src/assets/styles/index.css'),
 			tailwindcss(),
