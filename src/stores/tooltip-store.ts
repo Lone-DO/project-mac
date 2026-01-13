@@ -19,9 +19,16 @@ export const useTooltipStore = defineStore('tooltip-registry', () => {
 		}
 	}
 
+	function clear(el: HTMLElement) {
+		if (target.value === el) {
+			target.value = null;
+		}
+	}
+
 	return {
 		target,
 		options,
 		update,
+		clear,
 	};
 });

@@ -23,6 +23,8 @@ export const vTooltip: Directive = {
 		el?.setAttribute('aria-title', opts.text || '');
 	},
 	unmounted(el: HTMLElement) {
+		const $tooltip = useTooltipStore();
+		$tooltip?.clear(el);
 		if (listener) {
 			el?.removeEventListener('mouseover', listener);
 		}
