@@ -1,6 +1,7 @@
 import type { DockApp, NavLink } from '@/lib/types';
 
 export * from './app-store.ts';
+export * from './finder.ts';
 
 export const navLinks: NavLink[] = [
 	{ label: 'Contact', id: 'contact' },
@@ -24,7 +25,7 @@ export const DEFAULT_TOOLTIP_SHOW: (keyof HTMLElementEventMap)[] = ['mouseenter'
 export const DEFAULT_TOOLTIP_HIDE: (keyof HTMLElementEventMap)[] = ['mouseleave', 'blur'];
 
 export const DOCK_APPS: DockApp[] = [
-	{ id: 'store', label: 'Projects', imgSrc: 'app-icons/app-store.svg', canOpen: true },
+	{ id: 'store', label: 'Projects', imgSrc: 'app-icons/app-store.png', canOpen: true },
 	{ id: 'finder', label: 'Portfolio', imgSrc: 'app-icons/finder.png', canOpen: true },
 	{ id: 'photos', label: 'Gallery', imgSrc: 'app-icons/photos.png', canOpen: true },
 	{ id: 'contact', label: 'Contact', imgSrc: 'app-icons/contact.png', canOpen: true },

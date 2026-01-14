@@ -8,6 +8,7 @@ import {
 	AppRootTooltip,
 	AppStoreWindow,
 	AppWelcome,
+	FinderWindow,
 	ResumeWindow,
 	TerminalWindow,
 } from '@/components';
@@ -28,6 +29,7 @@ const windowStore = useWindowStore();
 			<TerminalWindow v-if="windowStore.windows.terminal.isOpen" />
 			<AppStoreWindow v-if="windowStore.windows.store.isOpen" />
 			<ResumeWindow v-if="windowStore.windows.resume.isOpen" />
+			<FinderWindow v-if="windowStore.windows.finder.isOpen" />
 		</main>
 	</section>
 </template>
