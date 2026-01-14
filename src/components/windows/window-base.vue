@@ -27,7 +27,9 @@ const hideMenu = computed(() => !$slots.menu);
 
 const DOM = useTemplateRef('window');
 onMounted(() => {
-	Draggable.create(DOM.value);
+	Draggable.create(DOM.value, {
+		onPressInit: () => windowStore.focusWindow($props.windowKey),
+	});
 });
 </script>
 
@@ -37,6 +39,7 @@ onMounted(() => {
 		ref="window"
 		class="window absolute sm:max-w-full sm:max-h-full max-sm:w-full max-sm:h-full"
 		:style="{ zIndex: `${targetWindow.zIndex}` }"
+		@mousedown="windowStore.focusWindow(windowKey)"
 	>
 		<aside v-if="!hideMenu" class="window_menu">
 			<WindowController
