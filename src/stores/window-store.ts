@@ -40,13 +40,16 @@ export const useWindowStore = defineStore('windowStore', () => {
 	function focusWindow(windowKey?: string) {
 		const window = windows.value[windowKey as keyof (typeof WINDOW_CONFIG)];
 		if (window) {
+			const nextIndex = nextZIndex.value + 1;
 			window.isOpen = true;
-			window.zIndex = nextZIndex.value + 1;
+			window.zIndex = nextIndex;
+			nextZIndex.value = nextIndex;
 		}
 	}
 
 	return {
 		windows,
+		nextZIndex,
 		openWindow,
 		closeWindow,
 		focusWindow,

@@ -75,6 +75,11 @@ watch(() => $props.target, (newTarget, oldTarget) => {
 		attach(newTarget);
 		init(newTarget);
 	}
+	else {
+		detach(oldTarget);
+		showTooltip.value = false;
+		popperInstance.value?.destroy();
+	}
 });
 
 watch(showTooltip, (bool) => {

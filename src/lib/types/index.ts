@@ -25,3 +25,24 @@ export type NavLink = {
 	label: string;
 	id: keyof (typeof WINDOW_CONFIG);
 };
+
+export type FileType = 'txt' | 'pdf' | 'url' | 'img' | 'fig';
+
+export type Location = {
+	id: string;
+	label: string;
+	icon: string;
+	children?: LocationChild[];
+	kind: 'folder' | 'file';
+};
+
+export type LocationChild = Location & {
+	imgSrc: string;
+	href?: string;
+	position?: string;
+	fileType?: FileType;
+	description?: string | string[];
+	subtitle?: string;
+	windowPosition?: string;
+	kind: 'folder' | 'file';
+};

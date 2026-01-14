@@ -17,28 +17,29 @@ defineEmits(['onBack']);
 
 const windowStore = useWindowStore();
 const $slots = useSlots();
-const window = computed(() => $props.windowKey && windowStore.windows[$props.windowKey]);
+const targetWindow = computed(() => $props.windowKey ? windowStore.windows[$props.windowKey] : null);
 
 function onMaximize() {
 	// console.log('Maximize Window');
 }
 
-const hideMenu = computed(() => {
-	return !$slots.menu;
-});
+const hideMenu = computed(() => !$slots.menu);
 
 const DOM = useTemplateRef('window');
 onMounted(() => {
-	Draggable.create(DOM.value);
+	Draggable.create(DOM.value, {
+		onPressInit: () => windowStore.focusWindow($props.windowKey),
+	});
 });
 </script>
 
 <template>
 	<section
-		v-if="window?.isOpen"
+		v-if="targetWindow?.isOpen"
 		ref="window"
 		class="window absolute sm:max-w-full sm:max-h-full max-sm:w-full max-sm:h-full"
-		:style="{ zIndex: `${window.zIndex}` }"
+		:style="{ zIndex: `${targetWindow.zIndex}` }"
+		@mousedown="windowStore.focusWindow(windowKey)"
 	>
 		<aside v-if="!hideMenu" class="window_menu">
 			<WindowController
