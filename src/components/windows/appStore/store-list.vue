@@ -21,7 +21,7 @@ defineEmits<{
 					:key="item.name"
 					class="flex gap-2 items-start min-h-10 flex-wrap"
 				>
-					<AppStoreIcon :src="`/images/${item.imgSrc}`" />
+					<AppStoreIcon :src="item.imgSrc" />
 					<p class="flex flex-col">
 						<span class="font-bold text-nowrap text-ellipsis">{{ item.name }}</span>
 						<span

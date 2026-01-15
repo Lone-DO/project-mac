@@ -5,9 +5,19 @@ import { defineConfig } from 'vite';
 import vueDevTools from 'vite-plugin-vue-devtools';
 import tailwindAutoReference from 'vite-plugin-vue-tailwind-auto-reference';
 
+import config from './src/lib/config';
+
 // https://vite.dev/config/
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+	let base = '/';
+	if (mode === 'production') {
+		base = `/${config.name}/`;
+	}
+	else if (mode === 'plugin') {
+		base = `/${config.name}/dist`;
+	}
 	return defineConfig({
+		base,
 		plugins: [
 			tailwindAutoReference('./src/assets/styles/index.css'),
 			tailwindcss(),

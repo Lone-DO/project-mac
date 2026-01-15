@@ -48,11 +48,11 @@ const fields = computed(() => {
 			<img
 				id="app-store-details_header-background"
 				:class="{ 'blur-sm invert': !project.bannerSrc, 'blur-3xl': project.bannerSrc }"
-				:src="`images/${$props.project.bannerSrc || '/projects/fallback.webp'}`"
+				:src="$props.project.bannerSrc || 'images/projects/fallback.webp'"
 				alt=" "
 			>
 			<div id="app-store-details_header-content">
-				<AppStoreIcon :src="`images/${project.imgSrc}`" class="sm:w-32 sm:h-32" />
+				<AppStoreIcon :src="project.imgSrc" class="sm:w-32 sm:h-32" />
 				<p id="app-store-details_header-info" class="flex flex-col mb-2">
 					<span class="font-bold text-nowrap text-ellipsis text-2xl">{{ project.name }}</span>
 					<span
@@ -116,7 +116,7 @@ const fields = computed(() => {
 					<span>Develop</span>
 				</div>
 			</div>
-			<div id="app-store-details_body-middle">
+			<div id="app-store-details_body-middle" class="sm:max-w-2xl">
 				<p>{{ project.description }}</p>
 			</div>
 			<div id="app-store-details_body-bottom">

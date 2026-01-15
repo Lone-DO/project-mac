@@ -23,7 +23,7 @@ defineProps<{
 				:data-selected="selectedCategory === opt.label || null"
 			>
 				<img
-					:src="`/images/${opt.imgSrc}`"
+					:src="opt.imgSrc"
 					:alt="opt.imgSrc"
 					loading="lazy"
 				>
