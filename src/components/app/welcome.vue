@@ -2,7 +2,7 @@
 import gsap from 'gsap';
 import { onMounted, useTemplateRef } from 'vue';
 
-import TextUnpacker from '@/components/app/text-unpacker.vue';
+import { AppTextUnpacker } from '@/components';
 import { FONT_WEIGHTS } from '@/lib/constants';
 
 const titleRef = useTemplateRef('title');
@@ -27,7 +27,7 @@ function setupTextHover(container: HTMLElement | null, type: 'title' | 'subtitle
 			letters.forEach((letter) => {
 				const { left: l, width: w } = letter.getBoundingClientRect();
 				const distance = Math.abs(mouseX - (l - left + w / 2));
-				const intensity = Math.exp(-(distance ** 2) / 20000);
+				const intensity = Math.exp(-(distance ** 2) / 2000);
 				animateLetter(letter, min + (max - min) * intensity);
 			});
 		};
@@ -56,11 +56,22 @@ onMounted(() => {
 
 <template>
 	<section id="welcome" class="w-full">
-		<p ref="subtitle">
-			<TextUnpacker :base-weight="100" text="Hey, I'm Leon! Welcome to my" />
+		<p
+			id="welcome_subtitle"
+			ref="subtitle"
+			class="text-2xl"
+		>
+			<AppTextUnpacker
+				text="Hey, I'm Shawn! Welcome to my"
+				:base-weight="FONT_WEIGHTS.subtitle.default"
+			/>
 		</p>
-		<h1 ref="title" class="text-6xl">
-			<TextUnpacker text="portfolio" class-name="italic" />
+		<h1 ref="title" class="text-9xl">
+			<AppTextUnpacker
+				:base-weight="FONT_WEIGHTS.title.default"
+				text="portfolio"
+				class-name="italic"
+			/>
 		</h1>
 		<p class="small-screen">
 			This Portfolio is designed for desktop/tablet screens only.
@@ -74,10 +85,6 @@ onMounted(() => {
 
 	.small-screen {
 		@apply sm:hidden m-7 bg-red-300/20 backdrop-blur-lg p-3 rounded-md absolute top-10 font-roboto gap-4;
-	}
-
-	p:not(.small-screen) {
-		@apply text-[16px] text-center  text-gray-400;
 	}
 }
 </style>
