@@ -18,8 +18,8 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noUncheckedSideEffectImports": true,
-		"emitDeclarationOnly": false,
-		"noEmit": false,
+		"emitDeclarationOnly": true,
+		"noEmit": true,
 		"erasableSyntaxOnly": true
 	},
 	"include": [

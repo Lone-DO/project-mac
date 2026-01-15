@@ -26,3 +26,4 @@ jobs:
           node-version: '22.x'
       - run: pnpm install
       - run: pnpm lint
+      - run: pnpm typecheck
