@@ -4,6 +4,7 @@ withDefaults(defineProps<{
 	className?: string;
 	baseWeight?: number;
 }>(), {
+	className: '',
 	baseWeight: 400,
 });
 </script>
