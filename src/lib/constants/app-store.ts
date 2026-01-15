@@ -1,13 +1,13 @@
 import type { Projects } from '@/lib/types';
 
 export const STORE_CATEGORIES = [
-	{ label: 'Discover', imgSrc: 'icons/star.svg' },
-	{ label: 'Create', imgSrc: 'icons/create.svg' },
-	{ label: 'Work', imgSrc: 'icons/paper-plane.svg' },
-	{ label: 'Play', imgSrc: 'icons/rocket.svg' },
-	{ label: 'Develop', imgSrc: 'icons/hammer.png' },
-	{ label: 'Categories', imgSrc: 'icons/category.svg' },
-	{ label: 'Updates', imgSrc: 'icons/download.svg', subLabel: '2' },
+	{ label: 'Discover', imgSrc: 'images/icons/star.svg' },
+	{ label: 'Create', imgSrc: 'images/icons/create.svg' },
+	{ label: 'Work', imgSrc: 'images/icons/paper-plane.svg' },
+	{ label: 'Play', imgSrc: 'images/icons/rocket.svg' },
+	{ label: 'Develop', imgSrc: 'images/icons/hammer.png' },
+	{ label: 'Categories', imgSrc: 'images/icons/category.svg' },
+	{ label: 'Updates', imgSrc: 'images/icons/download.svg', subLabel: '2' },
 ];
 
 export const PROJECTS: Projects = [
@@ -21,8 +21,8 @@ export const PROJECTS: Projects = [
 				tools: ['Nuxt', 'Vue@3', 'Vercel', 'Turso', 'Tailwindcss', 'SQLite', 'Drizzle', 'DaisyUi', 'Pinia'],
 				startDate: 'September 2025',
 				endDate: '',
-				imgSrc: 'projects/netflix.webp',
-				bannerSrc: 'projects/netflix-banner.webp',
+				imgSrc: 'images/projects/netflix.webp',
+				bannerSrc: 'images/projects/netflix-banner.webp',
 				links: [
 					['Website', 'https://losovoj-portfolio.vercel.app/'],
 					['Github', 'https://github.com/Lone-DO/project-netflix'],
@@ -34,7 +34,7 @@ export const PROJECTS: Projects = [
 				tools: ['Nuxt', 'Vue@3', 'Vercel', 'Turso', 'Tailwindcss', 'SQLite', 'Drizzle', 'DaisyUi', 'Pinia'],
 				startDate: 'August 2025',
 				endDate: 'Sep 2025',
-				imgSrc: 'projects/passport.webp',
+				imgSrc: 'images/projects/passport.webp',
 				bannerSrc: '',
 				links: [
 					['Website', 'https://reisen-dashboard.vercel.app/'],
@@ -47,7 +47,7 @@ export const PROJECTS: Projects = [
 				tools: ['Vue@3', 'SASS', 'Github Pages'],
 				startDate: 'August 2025',
 				endDate: 'September 2025',
-				imgSrc: 'projects/vogel.webp',
+				imgSrc: 'images/projects/vogel.webp',
 				bannerSrc: '',
 				links: [
 					['Github', 'https://github.com/Lone-DO/project-vogel'],
@@ -60,8 +60,8 @@ export const PROJECTS: Projects = [
 				tools: ['Vue@3', 'Vite', 'Typescript', 'SASS'],
 				startDate: 'May 2025',
 				endDate: 'July 2025',
-				imgSrc: 'projects/zzz.webp',
-				bannerSrc: 'projects/zzz-banner.webp',
+				imgSrc: 'images/projects/zzz.webp',
+				bannerSrc: 'images/projects/zzz-banner.webp',
 				links: [
 					['Github', 'https://github.com/Lone-DO/project-zzz'],
 					['Website', 'https://lone-do.github.io/project-zzz/'],
@@ -79,7 +79,7 @@ export const PROJECTS: Projects = [
 				tools: ['Angular@13.3.3', 'SASS'],
 				startDate: 'August 01, 2025',
 				endDate: 'August 31, 2025',
-				imgSrc: 'projects/angular-ecommerce.webp',
+				imgSrc: 'images/projects/angular-ecommerce.webp',
 				bannerSrc: '',
 				links: [
 					['Github', 'https://github.com/lone-do/ecommerce-angular'],
@@ -92,7 +92,7 @@ export const PROJECTS: Projects = [
 				tools: ['Angular@20.0', 'Github Pages', 'Figma'],
 				startDate: 'July 2025',
 				endDate: 'July 2025',
-				imgSrc: 'projects/angular-todo.webp',
+				imgSrc: 'images/projects/angular-todo.webp',
 				bannerSrc: '',
 				links: [
 					['Github', 'https://github.com/Lone-DO/todo-angular'],
@@ -111,8 +111,8 @@ export const PROJECTS: Projects = [
 				tools: ['MERN Stack', 'Mongo', 'Express', 'Ember.js', 'Node.js', 'SASS', 'jQuery', 'HTML5', 'CSS3', 'JavaScript', 'React.js'],
 				startDate: 'October 2019',
 				endDate: 'December 2019',
-				imgSrc: 'projects/animal-crossing.webp',
-				bannerSrc: 'projects/animal-crossing-fan-banner.webp',
+				imgSrc: 'images/projects/animal-crossing.webp',
+				bannerSrc: 'images/projects/animal-crossing-fan-banner.webp',
 				links: [
 					['Website', 'https://lone-do.github.io/project-ac/'],
 					['Github', 'https://github.com/lone-do.github.io/project-ac/'],
@@ -134,8 +134,8 @@ export const PROJECTS: Projects = [
 				],
 				startDate: '',
 				endDate: '',
-				imgSrc: 'projects/hytale.webp',
-				bannerSrc: 'projects/hytale-banner.webp',
+				imgSrc: 'images/projects/hytale.webp',
+				bannerSrc: 'images/projects/hytale-banner.webp',
 			},
 			{
 				name: '7 Days To Die',
@@ -147,8 +147,8 @@ export const PROJECTS: Projects = [
 				],
 				startDate: 'April 01, 2017',
 				endDate: 'October 01, 2019',
-				imgSrc: 'projects/7dtd.webp',
-				bannerSrc: 'projects/7dtd-banner.webp',
+				imgSrc: 'images/projects/7dtd.webp',
+				bannerSrc: 'images/projects/7dtd-banner.webp',
 			},
 		],
 	},

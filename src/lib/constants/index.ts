@@ -10,10 +10,10 @@ export const navLinks: NavLink[] = [
 ];
 
 export const controlLinks = [
-	{ label: 'wifi', imgSrc: 'icons/wifi.svg' },
-	{ label: 'search', imgSrc: 'icons/search.svg' },
-	{ label: 'user', imgSrc: 'icons/user.svg' },
-	{ label: 'mode', imgSrc: 'icons/mode.svg' },
+	{ label: 'wifi', imgSrc: 'images/icons/wifi.svg' },
+	{ label: 'search', imgSrc: 'images/icons/search.svg' },
+	{ label: 'user', imgSrc: 'images/icons/user.svg' },
+	{ label: 'mode', imgSrc: 'images/icons/mode.svg' },
 ];
 
 export const FONT_WEIGHTS = {
@@ -25,12 +25,12 @@ export const DEFAULT_TOOLTIP_SHOW: (keyof HTMLElementEventMap)[] = ['mouseenter'
 export const DEFAULT_TOOLTIP_HIDE: (keyof HTMLElementEventMap)[] = ['mouseleave', 'blur'];
 
 export const DOCK_APPS: DockApp[] = [
-	{ id: 'store', label: 'Projects', imgSrc: 'app-icons/app-store.png', canOpen: true },
-	{ id: 'finder', label: 'Portfolio', imgSrc: 'app-icons/finder.png', canOpen: true },
-	{ id: 'photos', label: 'Gallery', imgSrc: 'app-icons/photos.png', canOpen: true },
-	{ id: 'contact', label: 'Contact', imgSrc: 'app-icons/contact.png', canOpen: true },
-	{ id: 'terminal', label: 'Skills', imgSrc: 'app-icons/terminal.png', canOpen: true },
-	{ id: 'trash', label: 'Archive', imgSrc: 'app-icons/trash.png', canOpen: false },
+	{ id: 'store', label: 'Projects', imgSrc: 'images/app-icons/app-store.png', canOpen: true },
+	{ id: 'finder', label: 'Portfolio', imgSrc: 'images/app-icons/finder.png', canOpen: true },
+	{ id: 'photos', label: 'Gallery', imgSrc: 'images/app-icons/photos.png', canOpen: true },
+	{ id: 'contact', label: 'Contact', imgSrc: 'images/app-icons/contact.png', canOpen: true },
+	{ id: 'terminal', label: 'Skills', imgSrc: 'images/app-icons/terminal.png', canOpen: true },
+	{ id: 'trash', label: 'Archive', imgSrc: 'images/app-icons/trash.png', canOpen: false },
 ];
 
 export const INITIAL_Z_INDEX = 1000;

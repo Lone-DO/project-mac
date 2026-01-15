@@ -25,7 +25,7 @@ const windowStore = useWindowStore();
 		<div id="app-header_control-panel">
 			<ul>
 				<li v-for="(opt) in controlLinks" :key="opt.label">
-					<img :src="`/images/${opt.imgSrc}`" :alt="opt.label">
+					<img :src="opt.imgSrc" :alt="opt.label">
 				</li>
 			</ul>
 			<time>{{ dayjs().format('ddd MMM D h:mm A') }}</time>

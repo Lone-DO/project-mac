@@ -4,7 +4,7 @@ import { computed, ref } from 'vue';
 
 import { WindowBase } from '@/components';
 
-const { pdf, download } = usePDF('/files/resume.pdf');
+const { pdf, download } = usePDF('files/resume.pdf');
 const maxPage = ref(2);
 const page = ref(1);
 const isNextDisabled = computed(() => page.value >= maxPage.value);

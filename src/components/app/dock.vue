@@ -89,7 +89,7 @@ function openApp(app: DockApp) {
 					@click="openApp(opt)"
 				>
 					<img
-						:src="`images/${opt.imgSrc}`"
+						:src="opt.imgSrc"
 						:alt="opt.label"
 						loading="lazy"
 						:class="{ 'opacity-60': !opt.canOpen, 'cursor-default': !opt.canOpen }"
