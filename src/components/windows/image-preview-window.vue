@@ -1,11 +1,13 @@
 <script lang='ts' setup>
 import { computed } from 'vue';
 
+import type { LocationChild } from '@/lib/types/index.ts';
+
 import { WindowBase } from '@/components';
 import { useWindowStore } from '@/stores/index.ts';
 
 const windowStore = useWindowStore();
-const data = computed(() => windowStore.windows.imgfile.data);
+const data = computed<LocationChild | null>(() => windowStore.windows.imgfile.data || null);
 </script>
 
 <template>
