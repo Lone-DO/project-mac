@@ -17,8 +17,8 @@ export const useLocationStore = defineStore('locationStore', () => {
 		}
 	}
 
-	function resetLocation() {
-		selectedLocation.value = null;
+	function reset() {
+		selectedLocation.value = deepCopy(FINDER_LOCATIONS.work);
 	}
 
 	const checkActive = (category: string | number) => selectedLocation.value?.id === category;
@@ -34,7 +34,11 @@ export const useLocationStore = defineStore('locationStore', () => {
 			if (location.fileType === 'pdf') {
 				return windowStore.openWindow('resume');
 			}
-			return windowStore.openWindow(`${location.fileType}${location.kind}`);
+			const validTxtData = location.fileType === 'txt' && location.description?.length;
+			const validImgData = location.fileType === 'img' && location.imgSrc;
+			if (validTxtData || validImgData) {
+				return windowStore.openWindow(`${location.fileType}${location.kind}`, location);
+			}
 		}
 		return null;
 	}
@@ -43,7 +47,7 @@ export const useLocationStore = defineStore('locationStore', () => {
 		selectedLocation,
 		checkActive,
 		setLocation,
-		resetLocation,
+		reset,
 		openItem,
 	};
 });
