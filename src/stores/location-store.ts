@@ -47,7 +47,6 @@ export const useLocationStore = defineStore('locationStore', () => {
 		selectedLocation,
 		checkActive,
 		setLocation,
-		setPreviewItem,
 		reset,
 		openItem,
 	};

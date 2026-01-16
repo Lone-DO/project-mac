@@ -387,7 +387,7 @@ const ABOUT_LOCATION: Location = {
 			icon: 'images/app-icons/image.png',
 			kind: 'file',
 			fileType: 'img',
-			position: 'top-28 right-72',
+			position: 'top-38 left-40',
 			imgSrc: 'images/me/leon-2.JPG',
 		},
 		{
@@ -396,7 +396,7 @@ const ABOUT_LOCATION: Location = {
 			icon: 'images/app-icons/image.png',
 			kind: 'file',
 			fileType: 'img',
-			position: 'top-52 left-80',
+			position: 'top-82 left-40',
 			imgSrc: 'images/me/leon-3.jpeg',
 		},
 		{

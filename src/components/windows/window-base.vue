@@ -37,7 +37,7 @@ onMounted(() => {
 	<section
 		v-if="targetWindow?.isOpen"
 		ref="window"
-		class="window absolute sm:max-w-full sm:max-h-full max-sm:w-full max-sm:h-full"
+		class="window absolute sm:min-w-100 sm:min-h-25 sm:max-w-full sm:max-h-full max-sm:w-full max-sm:h-full"
 		:style="{ zIndex: `${targetWindow.zIndex}` }"
 		@mousedown="windowStore.focusWindow(windowKey)"
 	>
