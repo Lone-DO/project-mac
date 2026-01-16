@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { WindowBase } from '@/components';
-import FinderMenu from '@/components/finder/finder-menu.vue';
-import { FINDER_LOCATIONS } from '@/lib/constants';
+import { WindowBase } from '@/components/index.ts';
+import FinderMenu from '@/components/windows/finder/finder-menu.vue';
+import { FINDER_LOCATIONS } from '@/lib/constants/index.ts';
 import { useLocationStore } from '@/stores/location-store.ts';
 
 const locationStore = useLocationStore();

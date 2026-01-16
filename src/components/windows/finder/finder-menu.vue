@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Location, LocationChild } from '@/lib/types';
+import type { Location, LocationChild } from '@/lib/types/index.ts';
 
 import { useLocationStore } from '@/stores/location-store.ts';
 
