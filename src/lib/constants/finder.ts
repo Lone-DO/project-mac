@@ -379,7 +379,7 @@ const ABOUT_LOCATION: Location = {
 			kind: 'file',
 			fileType: 'img',
 			position: 'top-10 left-5',
-			imgSrc: 'images/me/leon.JPG',
+			imgSrc: 'images/me/code-lou-me.JPG',
 		},
 		{
 			id: 'about-2',
@@ -388,7 +388,7 @@ const ABOUT_LOCATION: Location = {
 			kind: 'file',
 			fileType: 'img',
 			position: 'top-38 left-40',
-			imgSrc: 'images/me/leon-2.JPG',
+			imgSrc: 'images/me/casual-me.JPG',
 		},
 		{
 			id: 'about-3',
@@ -397,7 +397,7 @@ const ABOUT_LOCATION: Location = {
 			kind: 'file',
 			fileType: 'img',
 			position: 'top-82 left-40',
-			imgSrc: 'images/me/leon-3.jpeg',
+			imgSrc: 'images/me/conference-me.jpeg',
 		},
 		{
 			id: 'about-4',
@@ -414,6 +414,16 @@ const ABOUT_LOCATION: Location = {
 				'I’m enjoy mentoring, testing, writing code with a strong foundation based on best practices, and more testing',
 				'Outside of dev work, you\'ll find me tweaking with gadgets, video games, or leveling up as a father.',
 			],
+		},
+		{
+			id: 'about-5',
+			label: 'Blog: Developer Advocacy',
+			icon: 'images/app-icons/safari.png',
+			kind: 'file',
+			fileType: 'url',
+			position: 'top-10 left-80',
+			imgSrc: '',
+			href: 'https://www.kentuckianaworks.org/news/codelou-2022',
 		},
 	],
 };
