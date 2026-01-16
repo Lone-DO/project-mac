@@ -13,7 +13,7 @@ export const useWindowStore = defineStore('windowStore', () => {
 	function openWindow(windowKey: string, data?: WindowData) {
 		const window = windows.value[windowKey as keyof (typeof WINDOW_CONFIG)];
 		if (window) {
-			if (window.isOpen) {
+			if (window.isOpen && !windowKey.includes('file')) {
 				/**
 				 * TODO: Check if window is current focus
 				 * WHEN current focus, THEN close window

@@ -1,0 +1,26 @@
+<script lang='ts' setup>
+import { computed } from 'vue';
+
+import type { LocationChild } from '@/lib/types/index.ts';
+
+import { WindowBase } from '@/components';
+import { useWindowStore } from '@/stores/index.ts';
+
+const windowStore = useWindowStore();
+const data = computed<LocationChild | null>(() => windowStore.windows.txtfile.data || null);
+</script>
+
+<template>
+	<WindowBase
+		id="text-preview-window"
+		:title="`Preview ${data?.label}`"
+		window-key="txtfile"
+	>
+		<p class="flex flex-col gap-2 p-4">
+			<template v-if="Array.isArray(data?.description)">
+				<span v-for="(line, index) in data?.description" :key="index + line">{{ line }}</span>
+			</template>
+			<span v-else>{{ data?.description }}</span>
+		</p>
+	</WindowBase>
+</template>

@@ -9,8 +9,10 @@ import {
 	AppStoreWindow,
 	AppWelcome,
 	FinderWindow,
+	ImagePreviewWindow,
 	ResumeWindow,
 	TerminalWindow,
+	TextPreviewWindow,
 } from '@/components';
 import { useWindowStore } from '@/stores';
 
@@ -30,6 +32,8 @@ const windowStore = useWindowStore();
 			<AppStoreWindow v-if="windowStore.windows.store.isOpen" />
 			<ResumeWindow v-if="windowStore.windows.resume.isOpen" />
 			<FinderWindow v-if="windowStore.windows.finder.isOpen" />
+			<TextPreviewWindow v-if="windowStore.windows.txtfile.isOpen" />
+			<ImagePreviewWindow v-if="windowStore.windows.imgfile.isOpen" />
 		</main>
 	</section>
 </template>
