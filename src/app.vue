@@ -8,6 +8,7 @@ import {
 	AppRootTooltip,
 	AppStoreWindow,
 	AppWelcome,
+	ContactWindow,
 	FinderWindow,
 	ImagePreviewWindow,
 	ResumeWindow,
@@ -34,6 +35,7 @@ const windowStore = useWindowStore();
 			<FinderWindow v-if="windowStore.windows.finder.isOpen" />
 			<TextPreviewWindow v-if="windowStore.windows.txtfile.isOpen" />
 			<ImagePreviewWindow v-if="windowStore.windows.imgfile.isOpen" />
+			<ContactWindow v-if="windowStore.windows.contact.isOpen" />
 		</main>
 	</section>
 </template>

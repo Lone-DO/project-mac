@@ -46,3 +46,10 @@ export type LocationChild = Location & {
 	windowPosition?: string;
 	kind: 'folder' | 'file';
 };
+
+export type SocialLink = {
+	imgSrc: string;
+	href: string;
+	label: string;
+	class: string;
+};

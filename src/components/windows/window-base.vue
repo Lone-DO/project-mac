@@ -78,7 +78,7 @@ onMounted(() => {
 
 <style scoped>
 .window {
-	@apply max-w-full absolute sm:top-1/10 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden flex;
+	@apply max-w-full absolute sm:top-1/10 left-0 sm:left-[10%] md:left-[20%] lg:left-[30%] bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden flex;
 
 	.window_body {
 		@apply flex flex-1 flex-col overflow-hidden;
