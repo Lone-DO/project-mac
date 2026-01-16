@@ -1,4 +1,4 @@
-import type { DockApp, NavLink } from '@/lib/types';
+import type { DockApp, NavLink, SocialLink } from '@/lib/types';
 
 export * from './app-store.ts';
 export * from './finder.ts';
@@ -68,5 +68,26 @@ export const TECH_STACK = [
 	{
 		category: 'Dev Tools',
 		items: ['Git', 'GitHub', 'Docker'],
+	},
+];
+
+export const SOCIALS: SocialLink[] = [
+	{
+		imgSrc: 'images/icons/github.svg',
+		label: 'GitHub',
+		href: 'https://github.com/Lone-DO',
+		class: 'bg-[#0d1117] text-[#ecf2f8]',
+	},
+	{
+		imgSrc: 'images/icons/linkedin.svg',
+		label: 'LinkedIn',
+		href: 'https://www.linkedin.com/in/lone-do',
+		class: 'bg-[#0077B5] text-white',
+	},
+	{
+		imgSrc: 'images/app-icons/randstad-logo.svg',
+		label: 'Gulp',
+		href: 'https://www.gulp.de/gulp2/g/spezialisten/profil/pv0knu4rf2',
+		class: 'bg-[#0f1941] text-white',
 	},
 ];
