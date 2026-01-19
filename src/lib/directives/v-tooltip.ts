@@ -6,7 +6,7 @@ import { useTooltipStore } from '@/stores';
 
 let listener: null | (() => any) = null;
 
-export const vTooltip: Directive = {
+export const vTooltip: Directive<HTMLElement, TooltipOptions | string> = {
 	mounted(el: HTMLElement, binding) {
 		const $tooltip = useTooltipStore();
 		let opts: TooltipOptions = { text: '' };

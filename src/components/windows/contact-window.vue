@@ -17,7 +17,7 @@ function navigate(item: SocialLink) {
 		window-key="contact"
 		title="Contact Me"
 	>
-		<div class="p-4 flex flex-col gap-2">
+		<div class="p-4 flex flex-col gap-2 items-center">
 			<div class="max-w-32 max-h-64 rounded-full overflow-hidden flex items-center justify-center">
 				<img
 					class="w-full"
@@ -28,12 +28,12 @@ function navigate(item: SocialLink) {
 			<h3 class="text-lg font-bold">
 				Let's Connect
 			</h3>
-			<p>Got an idea? bugs hunter? Code Migration specialist? or just wanna nerd out?</p>
-			<menu class="flex gap-4">
+			<p>Got an idea? Need a bug hunter, a Code Migration specialist? or just wanna nerd out?</p>
+			<menu class="flex gap-4 w-full">
 				<li
 					v-for="item in SOCIALS"
 					:key="item.label"
-					:title="item.href"
+					v-tooltip="{ text: `Navigate to - ${item.href}`, placement: 'bottom' }"
 					:class="item.class"
 					class="flex-1 h-30 flex flex-col justify-between p-4 rounded-lg cursor-pointer"
 					@click="navigate(item)"
