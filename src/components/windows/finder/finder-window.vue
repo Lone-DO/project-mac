@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onUnmounted } from 'vue';
 
+import { WindowFileList } from '@/components';
 import { WindowBase } from '@/components/index.ts';
 import FinderMenu from '@/components/windows/finder/finder-menu.vue';
 import { FINDER_LOCATIONS } from '@/lib/constants/index.ts';
@@ -31,23 +32,11 @@ onUnmounted(() => {
 			</div>
 		</template>
 		<div class="flex h-full overflow-auto ">
-			<ul class="p-4 relative sm:w-xl overflow-x-auto w-4/5">
-				<li
-					v-for="item in locationStore.selectedLocation?.children"
-					:key="item.id + item.label"
-					class="absolute p-2 text-center flex flex-col items-center text-sm cursor-pointer rounded-lg hover:bg-blue-200 hover:text-blue-900"
-					:class="item.position"
-					:title="item.href"
-					@click="locationStore.openItem(item)"
-				>
-					<img
-						class="h-20"
-						:src="item.icon"
-						alt=""
-					>
-					<label class="w-35 select-none">{{ item.label }}</label>
-				</li>
-			</ul>
+			<WindowFileList
+				:items="locationStore.selectedLocation?.children"
+				class="p-4 relative sm:w-xl overflow-x-auto w-4/5"
+				@select-item="locationStore.openItem($event)"
+			/>
 		</div>
 	</WindowBase>
 </template>

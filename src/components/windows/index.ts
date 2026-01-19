@@ -4,7 +4,8 @@ import ResumeWindow from './resume-window.vue';
 import TerminalWindow from './terminal-window.vue';
 import TextPreviewWindow from './text-preview-window.vue';
 import WindowBase from './window-base.vue';
+import WindowFileList from './window-file-list.vue';
 
 export * from './appStore';
 export * from './finder';
-export { ContactWindow, ImagePreviewWindow, ResumeWindow, TerminalWindow, TextPreviewWindow, WindowBase };
+export { ContactWindow, ImagePreviewWindow, ResumeWindow, TerminalWindow, TextPreviewWindow, WindowBase, WindowFileList };
