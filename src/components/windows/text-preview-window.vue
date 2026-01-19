@@ -16,7 +16,7 @@ const data = computed<LocationChild | null>(() => windowStore.windows.txtfile.da
 		:title="`Preview ${data?.label}`"
 		window-key="txtfile"
 	>
-		<p class="flex flex-col gap-2 p-4">
+		<p>
 			<template v-if="Array.isArray(data?.description)">
 				<span v-for="(line, index) in data?.description" :key="index + line">{{ line }}</span>
 			</template>
@@ -24,3 +24,13 @@ const data = computed<LocationChild | null>(() => windowStore.windows.txtfile.da
 		</p>
 	</WindowBase>
 </template>
+
+<style scoped>
+#text-preview-window {
+	@apply w-md overflow-hidden;
+
+	p {
+		@apply flex flex-col gap-2 p-4;
+	}
+}
+</style>

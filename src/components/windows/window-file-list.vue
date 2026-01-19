@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import type { LocationChild } from '@/lib/types/index.ts';
 
-defineProps<{
+withDefaults(defineProps<{
 	items?: LocationChild[];
 	childrenClasses?: string;
 	enableDraggable?: boolean;
-}>();
+}>(), {
+	enableDraggable: false,
+});
 
 defineEmits<{
 	(e: 'selectItem', value: LocationChild): void;
