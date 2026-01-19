@@ -40,6 +40,8 @@ const fields = computed(() => {
 		['Tags:', $props.project.tools.join(', ')],
 	];
 });
+
+const navigate = (url: string) => url && window.open(url, '_blank');
 </script>
 
 <template>
@@ -67,6 +69,7 @@ const fields = computed(() => {
 						:key="name + link"
 						:title="link"
 						class="rounded-3xl bg-blue-200! px-4 py-1 cursor-pointer flex gap-2"
+						@click="navigate(link)"
 					>
 						<img
 							class="fill-red-900"

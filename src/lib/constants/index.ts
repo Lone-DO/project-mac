@@ -27,10 +27,10 @@ export const DEFAULT_TOOLTIP_HIDE: (keyof HTMLElementEventMap)[] = ['mouseleave'
 export const DOCK_APPS: DockApp[] = [
 	{ id: 'store', label: 'Projects', imgSrc: 'images/app-icons/app-store.png', canOpen: true },
 	{ id: 'finder', label: 'Portfolio', imgSrc: 'images/app-icons/finder.png', canOpen: true },
-	{ id: 'photos', label: 'Gallery', imgSrc: 'images/app-icons/photos.png', canOpen: true },
+	{ id: 'photos', label: 'Gallery', imgSrc: 'images/app-icons/photos.png', canOpen: false },
 	{ id: 'contact', label: 'Contact', imgSrc: 'images/app-icons/contact.png', canOpen: true },
 	{ id: 'terminal', label: 'Skills', imgSrc: 'images/app-icons/terminal.png', canOpen: true },
-	{ id: 'trash', label: 'Archive', imgSrc: 'images/app-icons/trash.png', canOpen: false },
+	{ id: 'trash', label: 'Archive', imgSrc: 'images/app-icons/trash.png', canOpen: true },
 ];
 
 export const INITIAL_Z_INDEX = 1000;

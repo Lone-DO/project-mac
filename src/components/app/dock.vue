@@ -4,10 +4,12 @@ import { onMounted, onUnmounted, ref, useTemplateRef } from 'vue';
 
 import type { DockApp, DockListeners } from '@/lib/types';
 
-import { DOCK_APPS } from '@/lib/constants';
+import { DOCK_APPS, FINDER_LOCATIONS } from '@/lib/constants';
 import { useWindowStore } from '@/stores';
+import { useLocationStore } from '@/stores/location-store.ts';
 
 const windowStore = useWindowStore();
+const locationStore = useLocationStore();
 const dockElement = useTemplateRef('dock');
 const iconElements = useTemplateRef('dock-icon');
 
@@ -69,7 +71,14 @@ onUnmounted(() => {
 });
 
 function openApp(app: DockApp) {
-	return (!app || !app.canOpen) ? null : windowStore.openWindow(app.id);
+	if (!app || !app.canOpen) {
+		return null;
+	}
+	if (app.id === 'trash') {
+		locationStore.setLocation(FINDER_LOCATIONS.trash);
+		return windowStore.openWindow('finder');
+	}
+	return windowStore.openWindow(app.id);
 }
 </script>
 

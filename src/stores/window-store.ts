@@ -14,11 +14,6 @@ export const useWindowStore = defineStore('windowStore', () => {
 		const window = windows.value[windowKey as keyof (typeof WINDOW_CONFIG)];
 		if (window) {
 			if (window.isOpen && !windowKey.includes('file')) {
-				/**
-				 * TODO: Check if window is current focus
-				 * WHEN current focus, THEN close window
-				 * ELSE toggle as focused and update zIndex
-				 */
 				return closeWindow(windowKey);
 			}
 			window.isOpen = true;

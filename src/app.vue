@@ -24,10 +24,10 @@ const windowStore = useWindowStore();
 </script>
 
 <template>
-	<section class="flex flex-col h-screen">
+	<section id="project-macos">
 		<AppHeader />
 		<AppRootTooltip />
-		<main class="flex-1 relative">
+		<main>
 			<AppWelcome />
 			<AppHome />
 			<AppDock />
@@ -46,20 +46,20 @@ const windowStore = useWindowStore();
 @layer base {
 	html,
 	body {
-		width: 100dvw;
-		overflow: hidden;
-		height: 100dvh;
+		@apply w-dvw overflow-hidden h-dvh;
 	}
 
 	main {
-		@apply w-dvw h-dvh overflow-hidden;
+		@apply w-dvw h-dvh overflow-hidden flex-1 relative;
 	}
 
 	body {
+		@apply bg-cover bg-no-repeat bg-center;
 		background-image: url('/images/wallpaper/default.webp');
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
 	}
+}
+
+#project-macos {
+	@apply flex flex-col h-screen;
 }
 </style>
