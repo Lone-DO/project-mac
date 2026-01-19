@@ -5,6 +5,7 @@ import Draggable from 'gsap/dist/Draggable';
 import {
 	AppDock,
 	AppHeader,
+	AppHome,
 	AppRootTooltip,
 	AppStoreWindow,
 	AppWelcome,
@@ -28,6 +29,7 @@ const windowStore = useWindowStore();
 		<AppRootTooltip />
 		<main class="flex-1 relative">
 			<AppWelcome />
+			<AppHome />
 			<AppDock />
 			<TerminalWindow v-if="windowStore.windows.terminal.isOpen" />
 			<AppStoreWindow v-if="windowStore.windows.store.isOpen" />
