@@ -10,10 +10,10 @@ import config from './src/lib/config';
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
 	let base = '/';
-	if (mode === 'production') {
-		base = `/${config.name}/`;
-	}
-	else if (mode === 'plugin') {
+	// if (mode === 'production') {
+	// 	base = `/${config.name}/`;
+	// }
+	if (mode === 'plugin') {
 		base = `/${config.name}/dist`;
 	}
 	return defineConfig({
