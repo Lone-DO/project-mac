@@ -59,7 +59,7 @@ defineProps<{
 }
 
 #app-store-menu {
-	@apply flex flex-col gap-4 select-none flex-1;
+	@apply flex flex-col gap-4 select-none flex-1 overflow-x-auto;
 
 	menu {
 		img {
@@ -77,6 +77,6 @@ defineProps<{
 }
 
 .app-store-menu_search {
-	@apply mx-4 flex items-center justify-center gap-2 rounded-lg border-2 border-gray-400 text-gray-400;
+	@apply mx-4 my-2 flex items-center justify-center gap-2 rounded-lg border-2 border-gray-400 text-gray-400;
 }
 </style>
