@@ -17,7 +17,7 @@ defineEmits(['maximize', 'close']);
 		<button
 			class="window_maximize"
 			title="maximize window"
-			@click.stop="$emit('maximize')"
+			disabled
 		/>
 	</div>
 </template>
