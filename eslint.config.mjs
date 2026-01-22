@@ -11,7 +11,7 @@ export default antfu({
 		tabWidth: 1,
 		quotes: 'single',
 	},
-	ignores: ['.pnpm-store/**', '**/migrations/*', '.github/workflows/**'],
+	ignores: ['.pnpm-store/**', '**/migrations/*', '.github/workflows/**', '**/index.html'],
 }, {
 	rules: {
 		'vue/max-attributes-per-line': ['error', {
