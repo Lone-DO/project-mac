@@ -1,3 +1,5 @@
+<img width="1920" height="1080" alt="MacOS Portfolio Screenshot" src="https://github.com/user-attachments/assets/3c3520f2-e581-4a96-91b1-4130448cf9f7" />
+
 # Setup
 
 Make sure to install dependencies:
