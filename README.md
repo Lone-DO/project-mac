@@ -1,5 +1,86 @@
-# Vue 3 + TypeScript + Vite
+# Setup
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Make sure to install dependencies:
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+```bash
+# pnpm
+pnpm install
+```
+
+## Development Server
+
+Start the development server on `http://localhost:3000`:
+
+```bash
+# pnpm
+pnpm dev
+```
+
+## Production
+
+Build the application for production:
+
+```bash
+# pnpm
+pnpm build
+```
+
+Locally preview production build:
+
+```bash
+# pnpm
+pnpm preview
+```
+
+# References
+
+- [Figma](https://www.figma.com/design/QNUvSyhE4qOsLBWJuIephM/MacOS-Portfolio?node-id=0-1&t=LyX7XktRGGviqxaB-1)
+
+# Dependencies
+
+## Plugins
+
+### [@popperjs/core](https://popper.js.org/docs/v2/)
+
+Used for Rendering dynamic Tooltips
+
+### [@tato30/vue-pdf](https://www.npmjs.com/package/@tato30/vue-pdf)
+
+Used for rendering PDF files within the DOM directly via canvas
+
+### [dayjs](https://www.npmjs.com/package/dayjs)
+
+Day.js is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for modern
+browsers.
+
+### [gsap](https://www.npmjs.com/package/gsap)
+
+Animation Library
+
+## Tailwind/UI Libraries
+
+### tailwind
+
+`@tailwindcss`, `@tailwindcss/vite` are used for registering Tailwind with vscode intellisense and vite compiler.
+
+```
+  // .vscode/settings.json for tailwindcss extension
+  "tailwindCSS.experimental.configFile": "./app/assets/css/main.css",
+```
+
+`vite-plugin-vue-tailwind-auto-reference` used for auto-referencing `@import tailwindcss` in every Vue component where
+`@apply` is used
+
+## Utilities
+
+### Eslint
+
+`eslint`, `eslint-plugin-format`, `@antfu/eslint-config`, `@nuxt/eslint`
+
+### Husky
+
+Git Hooks for validating code before allowing user to commit/push changes to server
+
+### lint-staged
+
+Hook to validate **only modified files** for linting problems
